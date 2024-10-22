@@ -8,7 +8,7 @@
     (cdkDropListDropped)="dropCol($event)">
     @for (col of colList; track colIndex; let colIndex = $index) {
       <li class="grid grid-rows-[auto_1fr] rounded-lg p-4 bg-base-200" cdkDrag (cdkDragStarted)="dragStart()">
-        <div class="flex items-center justify-between gap-4 mb-4" cdkDragHandle>
+        <div class="flex items-center justify-between gap-4 mb-4">
           <h2 class="text-lg font-semibold">
             <span class="badge badge-xs badge-primary mr-2"></span>
             {{ col.name }}
