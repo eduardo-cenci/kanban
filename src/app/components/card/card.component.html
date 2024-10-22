@@ -1,0 +1,13 @@
+<div class="flex items-center justify-between gap-4 mb-2">
+  <h3 class="text-md font-medium">{{ card.name }}</h3>
+  <div class="dropdown">
+    <div tabindex="0" role="button" class="btn btn-ghost btn-sm p-0">
+      <ng-icon size="24" name="heroEllipsisVertical" />
+    </div>
+    <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+      <li><button type="button" (click)="edit()">Edit</button></li>
+      <li><button type="button" (click)="remove()">Remove</button></li>
+    </ul>
+  </div>
+</div>
+<p class="whitespace-nowrap overflow-hidden text-ellipsis">{{ card.content }}</p>

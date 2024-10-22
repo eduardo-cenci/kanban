@@ -1,0 +1,8 @@
+<div class="sticky top-0 navbar justify-between p-4 bg-base-200">
+  <h1 class="text-xl font-bold">Kanban</h1>
+  <label class="swap swap-rotate">
+    <input type="checkbox" class="theme-controller" name="darkmode" [checked]="isDarkMode" (change)="toggleTheme()" />
+    <ng-icon class="swap-off" size="24" name="heroSun" />
+    <ng-icon class="swap-on" size="24" name="heroMoon" />
+  </label>
+</div>

@@ -1,5 +1,12 @@
 # Kanban
 
+[<img src="https://img.shields.io/badge/-Visualizar-333333?logo=githubpages" />](https://eduardo-cenci.github.io/kanban/)
+
+![Angular](https://img.shields.io/badge/-Angular-333333?logo=angular)
+![TypeScript](https://img.shields.io/badge/-TypeScript-333333?logo=typescript)
+![HTML](https://img.shields.io/badge/-HTML-333333?logo=HTML5)
+![Tailwind](https://img.shields.io/badge/-Tailwind-333333?logo=tailwindcss)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
 
 ## Development server
@@ -12,7 +19,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `ng build` to build the project.
 
 ## Further help
 

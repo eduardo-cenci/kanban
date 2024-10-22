@@ -1,0 +1,23 @@
+<dialog #modal class="modal outline-none">
+  <div class="modal-box">
+    <h3 class="text-md font-medium mb-4">New card</h3>
+    <form class="w-full flex flex-col items-center gap-4" [formGroup]="form" (submit)="submit($event)">
+      <input
+        class="input input-bordered w-full"
+        [class.input-error]="form.get('name')!.invalid && (form.get('name')!.touched || form.get('name')!.dirty)"
+        type="text"
+        name="name"
+        placeholder="Name"
+        formControlName="name" />
+      <textarea
+        class="textarea textarea-md textarea-bordered w-full"
+        [class.textarea-error]="form.get('content')!.invalid && (form.get('content')!.touched || form.get('content')!.dirty)"
+        placeholder="Content"
+        formControlName="content"></textarea>
+      <div class="w-full grid grid-cols-2 gap-4">
+        <button class="btn btn-outline btn-accent capitalize" type="submit">Save</button>
+        <button class="btn btn-outline capitalize" type="button" (click)="close()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</dialog>

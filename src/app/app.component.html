@@ -1,0 +1,46 @@
+<app-header />
+<main class="p-4 overflow-auto">
+  <ul
+    class="h-full grid grid-flow-col auto-cols-[20rem] gap-4"
+    cdkDropListGroup
+    cdkDropList
+    cdkDropListOrientation="horizontal"
+    (cdkDropListDropped)="dropCol($event)">
+    @for (col of colList; track colIndex; let colIndex = $index) {
+      <li class="grid grid-rows-[auto_1fr] rounded-lg p-4 bg-base-200" cdkDrag (cdkDragStarted)="dragStart()">
+        <div class="flex items-center justify-between gap-4 mb-4" cdkDragHandle>
+          <h2 class="text-lg font-semibold">
+            <span class="badge badge-xs badge-primary mr-2"></span>
+            {{ col.name }}
+          </h2>
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost btn-sm p-0">
+              <ng-icon size="24" name="heroEllipsisVertical" />
+            </div>
+            <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+              <li><button type="button" (click)="colForm.open(colIndex)">Edit</button></li>
+              <li><button type="button" (click)="removeColumn(colIndex)">Remove</button></li>
+            </ul>
+          </div>
+        </div>
+        <ul class="flex flex-col gap-4" cdkDropList [cdkDropListData]="[colIndex]" (cdkDropListDropped)="dropCard($event)">
+          @for (card of col.cardList; track cardIndex; let cardIndex = $index) {
+            <li class="rounded-lg p-4 bg-base-300" cdkDrag (cdkDragStarted)="dragStart()">
+              <app-card [card]="card" (editEvent)="cardForm.open(colIndex, cardIndex)" (removeEvent)="removeCard(colIndex, cardIndex)" />
+            </li>
+          }
+        </ul>
+        <button type="button" class="btn bg-base-300 w-full" (click)="cardForm.open(colIndex)">
+          <ng-icon size="24" name="heroPlusSmall" />
+          Add card
+        </button>
+      </li>
+    }
+    <button type="button" class="btn bg-base-200 w-full" (click)="colForm.open()">
+      <ng-icon size="24" name="heroPlusSmall" />
+      Add column
+    </button>
+  </ul>
+</main>
+<app-column-form #colForm />
+<app-card-form #cardForm />
